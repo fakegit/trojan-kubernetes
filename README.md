@@ -10,9 +10,13 @@ Kubernetes configuration templates for deploying trojan to a Kubernetes cluster.
     git clone https://github.com/trojan-gfw/trojan-kubernetes.git
     cd trojan-kubernetes/
     ```
-1. Change the password setting in the server config file using your favorite editor. **Don't touch anything else!**
+1. Change the password and database password settings in the server config file using your favorite editor. **Don't touch anything else!**
     ```bash
     vim trojan/trojan-server-config.yaml
+    ```
+1. Change the database password settings in the mariadb credentials file.
+    ```bash
+    vim mariadb/mariadb-cred.yaml
     ```
 1. Paste your certificate and private key to the secret file.
     ```bash
@@ -69,3 +73,4 @@ Kubernetes configuration templates for deploying trojan to a Kubernetes cluster.
     kubectl -n trojan get pods
     kubectl -n trojan get services
     ```
+1. Go to `https://<Your Cluster>/pma-trojan/` for user management.
